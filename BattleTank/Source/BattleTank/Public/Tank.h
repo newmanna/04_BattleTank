@@ -38,7 +38,7 @@ private:
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* InputComponent) override;
 
-	UPROPERTY(EditAnywhere)
+	UPROPERTY(EditAnywhere, Category = Firing)
 	float LaunchSpeed = 4000; // TODO find sensible default
 
 	UPROPERTY(EditAnywhere, Category = Setup)
@@ -47,4 +47,9 @@ private:
 
 	// Local barrel reference for spawning projectile
 	UTankBarrel* Barrel = nullptr; 
+
+	UPROPERTY(EditAnywhere, Category = Firing)
+	float ReloadTimeInSecs = 3;
+
+	double LastFireTime = 0;
 };
