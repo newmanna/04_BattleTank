@@ -38,16 +38,17 @@ private:
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* InputComponent) override;
 
-	UPROPERTY(EditAnywhere, Category = Firing)
-	float LaunchSpeed = 4000; // TODO find sensible default
+	// Local barrel reference for spawning projectile
+	UTankBarrel* Barrel = nullptr;
 
-	UPROPERTY(EditAnywhere, Category = Setup)
+	UPROPERTY(EditDefaultsOnly, Category = Setup)
 	// UClass* ProjectileBlueprint; // alternative https://docs.unrealengine.com/latest/INT/Programming/UnrealArchitecture/TSubclassOf/
 	TSubclassOf<AProjectile> ProjectileBlueprint;
 
-	// Local barrel reference for spawning projectile
-	UTankBarrel* Barrel = nullptr; 
+	UPROPERTY(EditDefaultsOnly, Category = Firing)
+	float LaunchSpeed = 4000; // TODO find sensible default
 
+	UPROPERTY(EditDefaultsOnly, Category = Firing)
 	float ReloadTimeInSecs = 3;
 
 	double LastFireTime = 0;
