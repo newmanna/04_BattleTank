@@ -20,4 +20,7 @@ private:
 
 	// Called every frame
 	virtual void Tick(float DeltaSeconds) override;
+
+	// how close can the AI tank get to the player (currently assuming Centimeters)
+	float AcceptanceRadius = 3000;
 };
